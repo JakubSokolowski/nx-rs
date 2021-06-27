@@ -2,6 +2,7 @@ import styles from './app.module.scss';
 
 import { ReactComponent as Logo } from './logo.svg';
 import star from './star.svg';
+import { environment } from '../environments/environment';
 
 export function App() {
   return (
@@ -93,6 +94,7 @@ nx affected:test
 nx affected:e2e
   `}</pre>
         </details>
+        <div>Version: {environment.sha}</div>
       </main>
     </div>
   );
