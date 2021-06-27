@@ -1,0 +1,30 @@
+{
+  "npmScope": "nx-rs",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    ".eslintrc.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "projects": {
+    "nx-rs-front": {
+      "tags": []
+    },
+    "nx-rs-front-e2e": {
+      "tags": [],
+      "implicitDependencies": ["nx-rs-front"]
+    }
+  }
+}
