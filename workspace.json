@@ -1,6 +1,27 @@
 {
   "version": 2,
   "projects": {
+    "lib-rs": {
+      "root": "libs/lib-rs",
+      "sourceRoot": "libs/lib-rs/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/lib-rs/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/lib-rs"],
+          "options": {
+            "jestConfig": "libs/lib-rs/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "nx-rs-front": {
       "root": "apps/nx-rs-front",
       "sourceRoot": "apps/nx-rs-front/src",

@@ -19,6 +19,9 @@
     }
   },
   "projects": {
+    "lib-rs": {
+      "tags": []
+    },
     "nx-rs-front": {
       "tags": []
     },
