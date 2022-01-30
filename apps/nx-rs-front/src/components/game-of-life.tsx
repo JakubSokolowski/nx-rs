@@ -1,8 +1,7 @@
 import { FC, useCallback, useEffect, useRef } from 'react';
-import { Cell, Universe } from '../../../../libs/lib-rs/pkg';
-import { memory } from '../../../../libs/lib-rs/pkg/calc_rs_bg.wasm';
+import { Cell, memory, Universe } from '@nx-rs/lib-rs';
 
-const CELL_SIZE = 1; // px
+const CELL_SIZE_PX = 1;
 
 const GameOfLife: FC = () => {
   const universe = Universe.new(500, 500);
@@ -16,14 +15,14 @@ const GameOfLife: FC = () => {
 
     // Vertical lines.
     for (let i = 0; i <= width; i++) {
-      ctx.moveTo(i * (CELL_SIZE + 1) + 1, 0);
-      ctx.lineTo(i * (CELL_SIZE + 1) + 1, (CELL_SIZE + 1) * height + 1);
+      ctx.moveTo(i * (CELL_SIZE_PX + 1) + 1, 0);
+      ctx.lineTo(i * (CELL_SIZE_PX + 1) + 1, (CELL_SIZE_PX + 1) * height + 1);
     }
 
     // Horizontal lines.
     for (let j = 0; j <= height; j++) {
-      ctx.moveTo(0, j * (CELL_SIZE + 1) + 1);
-      ctx.lineTo((CELL_SIZE + 1) * width + 1, j * (CELL_SIZE + 1) + 1);
+      ctx.moveTo(0, j * (CELL_SIZE_PX + 1) + 1);
+      ctx.lineTo((CELL_SIZE_PX + 1) * width + 1, j * (CELL_SIZE_PX + 1) + 1);
     }
 
     ctx.stroke();
@@ -48,10 +47,10 @@ const GameOfLife: FC = () => {
           : '#000000';
 
         ctx.fillRect(
-          col * (CELL_SIZE + 1) + 1,
-          row * (CELL_SIZE + 1) + 1,
-          CELL_SIZE,
-          CELL_SIZE
+          col * (CELL_SIZE_PX + 1) + 1,
+          row * (CELL_SIZE_PX + 1) + 1,
+          CELL_SIZE_PX,
+          CELL_SIZE_PX
         );
       }
     }
@@ -61,7 +60,7 @@ const GameOfLife: FC = () => {
 
   useEffect(() => {
     const canvas: any = canvasRef.current;
-    const context = canvas.getContext('2d');
+    const context: CanvasRenderingContext2D = canvas.getContext('2d');
     let frameCount = 0;
     let animationFrameId: any;
 
@@ -81,7 +80,7 @@ const GameOfLife: FC = () => {
     render();
 
     return () => {
-      // window.cancelAnimationFrame(animationFrameId);
+      window.cancelAnimationFrame(animationFrameId);
     };
   });
 
