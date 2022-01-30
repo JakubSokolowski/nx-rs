@@ -3,13 +3,12 @@ import React, { lazy, Suspense } from 'react';
 
 const GameOfLife = lazy(() => import('../components/game-of-life'));
 
-
 export function App() {
   return (
     <div className={styles.app}>
       <main>
         <Suspense fallback={<div>Loading...</div>}>
-          <GameOfLife/>
+          <GameOfLife />
         </Suspense>
       </main>
     </div>
