@@ -7,17 +7,50 @@
       "projectType": "library",
       "targets": {
         "lint": {
-          "executor": "@nrwl/linter:eslint",
+          "executor": "@nrwl/workspace:run-commands",
           "options": {
-            "lintFilePatterns": ["libs/lib-rs/**/*.{ts,tsx,js,jsx}"]
+            "commands": [
+              {
+                "command": "cargo clippy -- -D warnings"
+              }
+            ],
+            "cwd": "libs/lib-rs"
+          }
+        },
+        "format": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "cargo fmt"
+              }
+            ],
+            "cwd": "libs/lib-rs"
           }
         },
         "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/lib-rs"],
+          "executor": "@nrwl/workspace:run-commands",
           "options": {
-            "jestConfig": "libs/lib-rs/jest.config.js",
-            "passWithNoTests": true
+            "commands": [
+              {
+                "command": "cargo test"
+              },
+              {
+                "command": "wasm-pack test --headless --firefox"
+              }
+            ],
+            "cwd": "libs/lib-rs"
+          }
+        },
+        "build": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "cargo clippy -- -D warnings"
+              }
+            ],
+            "cwd": "libs/lib-rs"
           }
         }
       }
