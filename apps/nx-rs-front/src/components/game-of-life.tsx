@@ -93,7 +93,7 @@ const GameOfLife: FC = () => {
 
   return (
     <div style={{ padding: '10px', width: '100%' }}>
-      <h4>Game of life</h4>
+      <h4 data-test="game-of-life-title">Game of Life</h4>
       <div style={{ height: '10px' }} />
       <canvas style={{ width: '100%', height: '100%' }} ref={canvasRef} />
     </div>

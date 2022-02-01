@@ -15,13 +15,21 @@ jobs:
           persist-credentials: false
 
       - name: Set env
-        run: echo "NX_CALC_GIT_SHA=$GITHUB_SHA" >> $GITHUB_ENV
+        run: echo "NX_RS_GIT_SHA=$GITHUB_SHA" >> $GITHUB_ENV
+
+      - name: Install nightly toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: nightly-2021-12-08
+          override: true
 
       - name: Install and Build
         run: |
-          echo NX_CALC_GIT_SHA: $NX_CALC_GIT_SHA
+          echo NX_RS_GIT_SHA: NX_RS_GIT_SHA
           npm install
           npm run build:prod
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
