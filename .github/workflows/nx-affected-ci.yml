@@ -50,7 +50,7 @@ jobs:
 
       - name: Affected Lint
         shell: bash
-        run: npm run affected:lint -- --base=remotes/origin/${{ github.event.pull_request.base.ref }} --exclude docs
+        run: npm run affected:lint -- --base=remotes/origin/${{ github.event.pull_request.base.ref }}
 
       - name: Affected Test
         shell: bash
