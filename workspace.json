@@ -47,7 +47,7 @@
           "options": {
             "commands": [
               {
-                "command": "cargo clippy -- -D warnings"
+                "command": "wasm-pack build"
               }
             ],
             "cwd": "libs/lib-rs"
@@ -77,6 +77,12 @@
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
+          "dependsOn": [
+            {
+              "target": "build",
+              "projects": "dependencies"
+            }
+          ],
           "configurations": {
             "production": {
               "fileReplacements": [
@@ -149,6 +155,12 @@
             "tsConfig": "apps/nx-rs-front-e2e/tsconfig.e2e.json",
             "devServerTarget": "nx-rs-front:serve"
           },
+          "dependsOn": [
+            {
+              "target": "build",
+              "projects": "dependencies"
+            }
+          ],
           "configurations": {
             "production": {
               "devServerTarget": "nx-rs-front:serve:production"
