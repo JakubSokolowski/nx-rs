@@ -24,6 +24,9 @@ jobs:
           toolchain: nightly-2021-12-08
           override: true
 
+      - name: Install wasm-pack
+        uses: jetli/wasm-pack-action@v0.3.0
+
       - name: Install and Build
         run: |
           echo NX_RS_GIT_SHA: NX_RS_GIT_SHA
