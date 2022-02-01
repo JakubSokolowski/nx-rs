@@ -12,6 +12,7 @@
     "e2e": "nx run nx-rs-front-e2e:e2e",
     "e2e-watch": "nx run nx-rs-front-e2e:e2e --watch",
     "build-wasm": "nx run lib-rs:build",
+    "test-wasm": "nx run lib-rs:test",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",

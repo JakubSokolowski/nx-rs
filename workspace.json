@@ -33,13 +33,17 @@
           "options": {
             "commands": [
               {
+                "command": "cargo build"
+              },
+              {
                 "command": "cargo test"
               },
               {
                 "command": "wasm-pack test --headless --firefox"
               }
             ],
-            "cwd": "libs/lib-rs"
+            "cwd": "libs/lib-rs",
+            "parallel": false
           }
         },
         "build": {
