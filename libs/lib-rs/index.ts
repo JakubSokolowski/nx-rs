@@ -1,2 +1,2 @@
-export * from './pkg/calc_rs';
-export { memory } from './pkg/calc_rs_bg.wasm';
+export * from './pkg/lib_rs';
+export { memory } from './pkg/lib_rs_bg.wasm';
