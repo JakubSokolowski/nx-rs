@@ -25,6 +25,9 @@ jobs:
           override: true
           components: rustfmt, clippy
 
+      - name: Install wasm-pack
+        uses: jetli/wasm-pack-action@v0.3.0
+
       - name: Cache node_modules
         uses: actions/cache@v2
         env:
